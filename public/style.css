@@ -673,3 +673,11 @@ main.dspage>.section>div>:last-child,main.dspage>.section>div>:last-child>:last-
 .dspage .pkgs li a:hover,.dspage .pkgs li a:hover .pk-doi,.dspage .pkgs li a:hover cite{color:var(--accent)}
 /* 20 Nov (Colm): phone — home books one per row again (the 19 Nov 1.05fr/1fr rule above overrode the phone layout) */
 @media (max-width:640px){.home .books{grid-template-columns:1fr}}
+/* 20 Nov (Colm): phone — less space under the header rule; home list labels above each entry, as in Data & Papers "In progress" */
+@media (max-width:640px){
+  main{padding-top:1.5rem}
+  .home .now li{grid-template-columns:1fr;padding:.9rem 0}
+  .home .now li:first-child{padding-top:.2rem}
+  .home .now li:last-child{padding-bottom:0}
+  .home .now li>.k{padding:0 0 .2rem}
+}
