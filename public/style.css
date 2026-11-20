@@ -681,3 +681,9 @@ main.dspage>.section>div>:last-child,main.dspage>.section>div>:last-child>:last-
   .home .now li:last-child{padding-bottom:0}
   .home .now li>.k{padding:0 0 .2rem}
 }
+/* 20 Nov (Colm): phone — larger type, closer to news sites (Newsreader has a small x-height). Everything sized in rem grows by 12.5%; body text 17px → 19px */
+@media (max-width:640px){
+  html{font-size:18px}
+  body{font-size:19px}
+  summary{width:auto;max-width:100%}
+}
