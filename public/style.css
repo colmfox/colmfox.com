@@ -671,3 +671,5 @@ main.dspage>.section>div>:last-child,main.dspage>.section>div>:last-child>:last-
 .dspage .pkgs li a{color:var(--ink);text-decoration:none;font-size:inherit}
 .dspage .pkgs li a .pk-doi{margin-left:.55rem;font-size:.95rem;color:var(--muted);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.18em;text-decoration-color:var(--rule)}
 .dspage .pkgs li a:hover,.dspage .pkgs li a:hover .pk-doi,.dspage .pkgs li a:hover cite{color:var(--accent)}
+/* 20 Nov (Colm): phone — home books one per row again (the 19 Nov 1.05fr/1fr rule above overrode the phone layout) */
+@media (max-width:640px){.home .books{grid-template-columns:1fr}}
