@@ -1,0 +1,673 @@
+/*
+  VOICE   quiet, scholarly, unhurried; the work does the talking
+  IDEA    a well-set monograph page: one text column, dates hung in the margin
+  PICTURE the election posters and press archives from the fieldwork, small and exact
+  COLOUR  white paper, black ink, one deep red taken from the posters
+  TYPE    Newsreader throughout (optical sizes), italics for titles, tabular figures for years
+  LAYOUT  68rem page; prose capped at ~46rem lines; 6.5rem hanging margin; one column on phones
+*/
+
+/* Newsreader by Production Type, SIL Open Font License (fonts/OFL.txt), self-hosted */
+@font-face{font-family:"Newsreader";font-style:normal;font-display:swap;font-weight:200 800;src:url(fonts/newsreader-latin-ext-opsz-normal.woff2) format("woff2-variations"),url(fonts/newsreader-latin-ext-opsz-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Newsreader";font-style:italic;font-display:swap;font-weight:200 800;src:url(fonts/newsreader-latin-ext-opsz-italic.woff2) format("woff2-variations"),url(fonts/newsreader-latin-ext-opsz-italic.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Newsreader";font-style:normal;font-display:swap;font-weight:200 800;src:url(fonts/newsreader-latin-opsz-normal.woff2) format("woff2-variations"),url(fonts/newsreader-latin-opsz-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Newsreader";font-style:italic;font-display:swap;font-weight:200 800;src:url(fonts/newsreader-latin-opsz-italic.woff2) format("woff2-variations"),url(fonts/newsreader-latin-opsz-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+  color-scheme:light dark;
+  --bg:light-dark(#ffffff,#121212);
+  --ink:light-dark(#1a1a1a,#e8e8e8);
+  --muted:light-dark(#6b6b6b,#9a9a9a);
+  --rule:light-dark(#e4e4e4,#2c2c2c);
+  --accent:light-dark(#a3271f,#e0705f);
+  --tile:light-dark(#f2f2f2,#1d1d1d);
+  --measure:46rem;
+  --wrap:68rem;
+  --gutter:6.5rem;
+}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:2rem;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font:400 18px/1.6 "Newsreader",Georgia,"Times New Roman",serif;
+  font-optical-sizing:auto;font-variant-numeric:oldstyle-nums proportional-nums;
+  overflow-x:clip;text-rendering:optimizeLegibility;
+}
+img{max-width:100%;display:block}
+
+a{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.18em;text-decoration-color:var(--rule)}
+a:hover{color:var(--accent);text-decoration-color:currentColor}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 max(5vw,20px)}
+
+/* ---------- masthead ---------- */
+.mast{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.5rem 2rem;padding:2.9rem 0 .3rem;border-bottom:1px solid var(--rule)}
+.mast .name{font-size:1.35rem;letter-spacing:-.005em;text-decoration:none}
+.mast nav{display:flex;flex-wrap:wrap;gap:.25rem 1.4rem;font-size:1rem}
+.mast nav a{text-decoration:none;color:var(--muted);padding:.35rem 0}
+.mast nav a:hover{color:var(--ink)}
+.mast nav a[aria-current]{color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:.4em}
+
+/* ---------- type ---------- */
+h1{font-weight:350;font-size:clamp(2.1rem,5vw,3.1rem);line-height:1.05;letter-spacing:-.02em;margin:0 0 1.2rem;text-wrap:balance}
+h2{font-weight:400;font-size:1.65rem;line-height:1.15;letter-spacing:-.01em;margin:0 0 .9rem;text-wrap:balance}
+h3{font-weight:500;font-size:1.1rem;line-height:1.3;margin:0 0 .4rem}
+p{margin:0 0 1rem;max-width:var(--measure)}
+.lede{font-size:1.32rem;line-height:1.45;font-weight:350;max-width:36rem}
+.muted{color:var(--muted)}
+.small{font-size:.9rem}
+em,i,cite{font-style:italic}
+cite{font-style:italic}
+
+/* ---------- sections ---------- */
+main{padding:3.2rem 0 2rem}
+.section{padding:1.6rem 0;border-top:1px solid var(--rule)}
+.section:first-child{border-top:0;padding-top:0}
+.label{font-size:.95rem;color:var(--muted);margin:0 0 1.2rem}
+
+/* hanging-margin entries: year in the gutter, text in the measure */
+.entry{display:grid;grid-template-columns:var(--gutter) minmax(0,1fr);gap:0;margin:0 0 1.1rem}
+.entry>.yr{color:var(--muted);font-variant-numeric:lining-nums tabular-nums;font-size:.95rem;padding-top:.15em}
+.entry>.body{max-width:var(--measure)}
+.links{display:flex;flex-wrap:wrap;gap:.1rem 1.1rem;font-size:.95rem;margin-top:.25rem}
+.links a{color:var(--muted)}
+.links a:hover{color:var(--accent)}
+.links a.todo{text-decoration-style:dotted}
+
+/* ---------- project blocks ---------- */
+.project{display:grid;grid-template-columns:var(--gutter) minmax(0,1fr);padding:1.6rem 0;border-top:1px solid var(--rule)}
+.project:first-of-type{border-top:0;padding-top:.5rem}
+.group{font-size:1.1rem;font-weight:500;letter-spacing:0;margin:0;padding-top:1.4rem;border-top:1px solid var(--rule)}
+h1+.lede+.group{margin-top:2rem}
+.group+.project{border-top:0;padding-top:1rem}
+.project .tag{font-size:.95rem;color:var(--muted);padding-top:.35rem}
+.project .meta{font-size:.95rem;color:var(--muted);margin:-.4rem 0 1rem}
+.project figure{margin:0 0 1.2rem;max-width:30rem}
+.project figure img{width:100%;aspect-ratio:3/2;object-fit:cover;background:var(--tile)}
+.project figcaption{font-size:.85rem;color:var(--muted);margin-top:.4rem}
+.pubs{list-style:none;margin:1.1rem 0 0;padding:0}
+.pubs li{padding:.75rem 0;border-top:1px solid var(--rule)}
+.pubs li:last-child{padding-bottom:0}
+
+/* placeholder copy, to be replaced */
+.ph{background:repeating-linear-gradient(-45deg,transparent 0 6px,color-mix(in srgb,var(--accent) 7%,transparent) 6px 7px);border-left:2px solid color-mix(in srgb,var(--accent) 45%,transparent);padding:.6rem .9rem;margin:0 0 1rem}
+.ph::before{content:"Placeholder text";display:block;font-size:.8rem;color:var(--accent);margin-bottom:.2rem}
+
+/* ---------- research page ---------- */
+.intro.rintro{grid-template-columns:minmax(0,1fr) 20rem;align-items:end}
+.rintro .lede{margin:0}
+.sechead{font-size:1.9rem;margin:0 0 1rem}
+.cw{list-style:none;margin:0;padding:0}
+.cw li{display:grid;grid-template-columns:13rem minmax(0,1fr);gap:0 2.6rem;padding:1.1rem 0 1rem;border-top:1px solid var(--rule)}
+.cw h3{font-size:1.2rem;font-weight:450;line-height:1.3;margin:0 0 .35rem;text-wrap:balance}
+.cw .meta{font-size:.95rem;color:var(--muted);margin:0 0 .15rem}
+.cw .links{margin-top:0}
+.cw .abstract{max-width:none}
+.cw p:last-child{margin-bottom:0}
+details{margin:.2rem 0 0;max-width:var(--measure)}
+summary{cursor:pointer;color:var(--muted);font-size:.95rem;padding:.3rem 0;width:max-content}
+summary:hover{color:var(--accent)}
+details[open] summary{margin-bottom:.6rem}
+.section>.ds:first-child{border-top:0;padding-top:.6rem}
+.ds{display:grid;grid-template-columns:13rem minmax(0,1fr);gap:2.6rem;padding:1.6rem 0;border-top:1px solid var(--rule)}
+.ds figure{margin:.3rem 0 0}
+.ds figure img{width:100%;aspect-ratio:3/4;object-fit:cover;background:var(--tile)}
+.ds p,.ds .pubs,.ds .abstract{max-width:none}
+.ds-k{color:var(--muted);font-size:.95rem;font-variant-numeric:lining-nums tabular-nums;padding-top:.3rem}
+.ds figcaption{font-size:.85rem;color:var(--muted);margin-top:.4rem}
+.more{margin:1.6rem 0 0;color:var(--muted);font-size:.95rem}
+.ds h3{font-size:1.35rem;font-weight:400;margin:0 0 .6rem}
+.ds .pubs{max-width:var(--measure)}
+
+/* ---------- teaching page ---------- */
+.teach .project{grid-template-columns:9rem minmax(0,1fr)}
+.teach .project p{max-width:none}
+.teach .lede{max-width:52rem}
+
+/* ---------- home ---------- */
+.intro{display:grid;grid-template-columns:minmax(0,1fr) 9.5rem;gap:2.5rem;align-items:start}
+.portrait{width:9.5rem;aspect-ratio:238/208;height:auto;object-fit:cover;filter:grayscale(1) contrast(1.05)}
+.books{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem}
+.book{display:grid;grid-template-columns:6.5rem minmax(0,1fr);gap:1.1rem;align-items:start;text-decoration:none}
+.book:hover h3{color:var(--accent)}
+.book p{font-size:.95rem;color:var(--muted);margin:0}
+
+/* typographic stand-in cover, until the real cover image is added */
+.coverimg{width:100%;height:auto;border:1px solid var(--rule);background:var(--tile)}
+.coverimg.lg{max-width:13rem}
+.field{margin:0;max-width:22rem}
+.field img{width:100%;height:auto}
+.field figcaption{font-size:.85rem;color:var(--muted);margin-top:.4rem}
+.cover{aspect-ratio:2/3;background:var(--tile);border:1px solid var(--rule);padding:.6rem .55rem;display:flex;flex-direction:column;justify-content:space-between;font-size:.72rem;line-height:1.2}
+.cover b{font-weight:500;font-size:.82rem}
+.cover span{color:var(--muted)}
+.cover.lg{width:100%;max-width:13rem;font-size:.95rem;padding:1rem}
+.cover.lg b{font-size:1.15rem}
+
+.now{list-style:none;padding:0;margin:0}
+.now li{display:grid;grid-template-columns:var(--gutter) minmax(0,1fr);padding:.9rem 0;border-top:1px solid var(--rule)}
+.now li:last-child{border-bottom:1px solid var(--rule)}
+.now .k{font-size:.95rem;color:var(--muted);padding-top:.1em}
+
+/* ---------- book page ---------- */
+.bookpage{display:grid;grid-template-columns:14rem minmax(0,1fr);gap:3rem;align-items:start}
+.bookpage .coverimg.lg{position:sticky;top:1.5rem}
+.quote{margin:0 0 1.6rem;padding:0}
+.quote p{margin:0 0 .35rem}
+.quote footer{font-size:.95rem;color:var(--muted)}
+.toc{list-style:none;padding:0;margin:0;font-size:1rem;columns:2;column-gap:2.5rem}
+.toc li{break-inside:avoid;padding:.12rem 0}
+.toc .part{color:var(--muted);margin-top:.7rem}
+.toc .part:first-child{margin-top:0}
+.toc.one{columns:2}
+.toc.one li{padding:.3rem 0}
+.toc .by{display:block;font-size:.9rem;color:var(--muted)}
+
+/* ---------- footer ---------- */
+.foot{border-top:1px solid var(--rule);padding:1.6rem 0 3rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 2rem;font-size:.95rem;color:var(--muted)}
+.foot a{color:var(--muted)}
+
+/* ---------- narrow screens ---------- */
+@media (max-width:640px){
+  :root{--gutter:0px}
+  body{font-size:17px}
+  .entry,.project,.now li,.teach .project{grid-template-columns:1fr}
+  .entry>.yr,.project .tag,.now .k{padding:0 0 .15rem}
+  .intro{grid-template-columns:1fr;gap:1.4rem}
+  .intro .portrait{order:-1;width:7rem}
+  .books{grid-template-columns:1fr}
+  .bookpage{grid-template-columns:1fr;gap:1.6rem}
+  .cover.lg,.coverimg.lg{max-width:10rem}
+  .bookpage .coverimg.lg{position:static}
+  .toc{columns:1}
+  .mast{padding-top:1.4rem}
+}
+@media (prefers-reduced-motion:no-preference){
+  a{transition:color .15s ease,text-decoration-color .15s ease}
+}
+
+/* ---------- narrow screens ---------- */
+@media (max-width:820px){
+  .intro.rintro{grid-template-columns:1fr}
+  .ds{grid-template-columns:1fr;gap:1rem}
+  .ds figure{max-width:13rem}
+  .ds-k{display:none}
+  .cw li{grid-template-columns:1fr}
+  .toc,.toc.one{columns:1}
+}
+
+/* ---------- SEAPED page ---------- */
+.kicker{font-size:.95rem;color:var(--accent);margin:0 0 .8rem}
+.sp-head h1{font-size:clamp(3rem,8vw,5.2rem);margin:0}
+.sp-sub{font-size:1.5rem;font-style:italic;color:var(--muted);margin:.2rem 0 1.4rem}
+.sp-head .lede{max-width:none}
+.seaped h2{font-size:1.55rem;margin:0 0 1.2rem}
+.sp-two{display:grid;grid-template-columns:16rem minmax(0,1fr);gap:0 2.4rem}
+.sp-two h2{margin:0}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.4rem;counter-reset:s}
+.steps li{padding-top:.2rem}
+.steps .n{display:block;font-size:2.4rem;line-height:1;color:var(--accent);font-variant-numeric:lining-nums;margin-bottom:.5rem}
+.steps h3{font-size:1.2rem;font-weight:500;margin:0 0 .4rem}
+.steps p{font-size:.98rem;margin:0}
+.principles{list-style:none;margin:0 0 1rem;padding:0;max-width:var(--measure)}
+.principles li{padding:.55rem 0;border-top:1px solid var(--rule)}
+.principles li:last-child{border-bottom:1px solid var(--rule)}
+.principles b{font-weight:550}
+.publishers{background:var(--tile);border-top:0;padding:2.4rem 2rem;margin:1rem 0}
+@media (max-width:820px){
+  .sp-two{grid-template-columns:1fr}
+  .sp-two h2{margin-bottom:1rem}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:520px){
+  .steps{grid-template-columns:1fr}
+  .publishers{padding:1.6rem 1.1rem}
+}
+
+/* ---------- abstract toggles ---------- */
+.abs-btn{font:inherit;font-size:inherit;color:var(--muted);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.18em;text-decoration-color:var(--rule)}
+.abs-btn::before{content:"▸";display:inline-block;margin-right:.3em;font-size:.8em;transition:transform .15s}
+.abs-btn[aria-expanded="true"]::before{transform:rotate(90deg)}
+.abs-btn:hover{color:var(--accent)}
+.abs-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.abstract{max-width:var(--measure);margin:.7rem 0 .4rem;padding-left:1rem;border-left:2px solid var(--rule);font-size:.97rem}
+.abstract p{margin:0 0 .7rem}
+.abstract p:last-child{margin-bottom:0}
+@media (prefers-reduced-motion:reduce){.abs-btn::before{transition:none}}
+
+/* ---------- home: photo column on the left, all text aligned ---------- */
+.home .intro{grid-template-columns:11rem minmax(0,46rem);gap:2.6rem}
+.home .intro .portrait{order:-1;width:11rem;margin-top:.6rem}
+.home .lede{max-width:none}
+.home .intro .muted{font-style:italic}
+.home .books{grid-template-columns:minmax(min-content,1.3fr) minmax(0,1fr)}
+.home .book h3{white-space:nowrap}
+.home .book .coverimg{aspect-ratio:600/928;object-fit:cover;object-position:center}
+.home .book p{text-wrap:pretty}
+@media (max-width:640px){.home .books{grid-template-columns:1fr}.home .book h3{white-space:normal}}
+.home>.section:not(.intro){margin-left:13.6rem;border-top:0}
+.home .intro{padding-bottom:1.1rem}
+.home>.section.home-books{padding:1.6rem 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.home .home-books+.section{padding-top:1.6rem;padding-bottom:.4rem}
+.home .sechead{font-size:1.2rem;font-weight:500;letter-spacing:0;margin-bottom:.5rem}
+.home .now li,.home .now li:last-child{border:0;padding:.4rem 0}
+@media (max-width:820px){
+  .home .intro{grid-template-columns:1fr;gap:1.4rem}
+  .home .intro .portrait{width:7rem;margin-top:0}
+  .home>.section:not(.intro){margin-left:0}
+}
+
+/* ---------- landing on a linked item: brief tint so it is easy to spot ---------- */
+:root{--hl:light-dark(#f6e7e4,#3a2522)}
+.cw li,.ds,.bookpage,section[id]{scroll-margin-top:1.5rem}
+.cw li:target,.ds:target,.bookpage:target{animation:landed 2.6s ease-out}
+@keyframes landed{0%,35%{background:var(--hl);box-shadow:0 0 0 .9rem var(--hl)}100%{background:transparent;box-shadow:0 0 0 .9rem transparent}}
+@media (prefers-reduced-motion:reduce){.cw li:target,.ds:target,.bookpage:target{animation:none;background:var(--hl);box-shadow:0 0 0 .9rem var(--hl)}}
+
+/* ---------- books page ---------- */
+.books-head{padding-bottom:1.6rem}
+.books-head .lede{max-width:none}
+.booktitle{font-size:2rem;font-weight:380;line-height:1.1;margin:0 0 .6rem}
+
+/* ---------- consistent spacing around grey lines ---------- */
+.project>div>:last-child,.ds>div>:last-child,.section>:last-child{margin-bottom:0}
+main>.section:last-child,main>.project:last-child{padding-bottom:.4rem}
+
+/* ---------- SEAPED: source table and update line ---------- */
+.srctab{width:100%;border-collapse:collapse;font-size:.88rem;margin:.4rem 0 .2rem}
+.srctab th,.srctab td{text-align:left;padding:.4rem .6rem .4rem 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.srctab th{font-weight:500;color:var(--muted)}
+.updated{font-size:.85rem;color:var(--muted);margin-top:1.2rem}
+
+/* ---------- SEAPED: outlet list that opens in place ---------- */
+.srcbox{border:1px solid var(--rule);margin:1rem 0 0;max-width:var(--measure)}
+.srcbox>summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:baseline;gap:.2rem 1rem;padding:.7rem 1rem;background:var(--tile)}
+.srcbox>summary::-webkit-details-marker{display:none}
+.srcbox>summary::before{content:"";width:.5rem;height:.5rem;border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(-45deg);margin-right:.2rem;align-self:center;transition:transform .15s}
+.srcbox[open]>summary::before{transform:rotate(45deg)}
+.srcbox-t{font-weight:500;color:var(--ink)}
+.srcbox-s{font-size:.9rem;color:var(--muted)}
+.srcbox>summary:hover .srcbox-t{color:var(--accent)}
+.srcbox>summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.srcbox>div{padding:.8rem 1rem;margin:0}
+.srcbox>summary{width:100%;box-sizing:border-box}
+.srcbox-a{margin-left:auto;font-size:.88rem;color:var(--accent)}
+.srcbox-a::after{content:"Show list"}
+.srcbox[open] .srcbox-a::after{content:"Hide list"}
+
+/* ---------- SEAPED publisher pages ---------- */
+.pub-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.4rem 1.5rem;margin:0 0 1rem}
+.crumb,.langs{font-size:.92rem;color:var(--muted);margin:0}
+.langs [aria-current]{color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:.35em}
+.pub .lede{max-width:none}
+pre.code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9rem;background:var(--tile);padding:.7rem 1rem;margin:0 0 1rem;max-width:var(--measure);white-space:pre}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.88em}
+.pub-links{display:flex;flex-wrap:wrap;gap:.6rem 1rem;margin:0}
+.pub-links a{display:inline-block;padding:.5rem .9rem;border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);text-decoration:none;color:var(--ink);background:var(--bg)}
+.pub-links a:hover{border-color:var(--accent);color:var(--accent)}
+.pub h1{font-size:clamp(2.4rem,5vw,3.4rem);margin-bottom:.9rem}
+.ph:has(.srctab),.srcbox>div{overflow-x:auto}
+pre.code{overflow-x:auto}
+
+/* publisher pages: no rules between list items, only between sections */
+.pub .principles li,.pub .principles li:last-child{border:0;padding:.3rem 0 .3rem 1.1rem;position:relative}
+.pub .principles li::before{content:"";position:absolute;left:.1rem;top:.95em;width:.35rem;height:.35rem;border-radius:50%;background:var(--accent)}
+.pub-links .also{font-size:.92rem;color:var(--muted);align-self:center}
+.pub-links .also a{display:inline;padding:0;border:0;background:none;text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:.25em}
+
+/* SEAPED principles: numbered, no rules between items */
+.principles.numbered{counter-reset:pr}
+.principles.numbered li,.principles.numbered li:last-child{border:0;counter-increment:pr;position:relative;padding:.35rem 0 .35rem 2rem}
+.principles.numbered li::before{content:counter(pr);position:absolute;left:0;top:.3rem;font-size:1.15rem;color:var(--accent);font-variant-numeric:lining-nums}
+
+.kicker b{font-weight:600}
+.pub-note{background:var(--tile);border-left:3px solid var(--accent);padding:.7rem 1rem;margin:0 0 1rem;max-width:none;font-size:1.05rem}
+.pub-note b{font-weight:600}
+
+/* Data & Papers hierarchy (18 Nov) */
+.field img{aspect-ratio:4/3;object-fit:cover;object-position:58% 50%}
+.field{max-width:18rem}
+.field figcaption{text-align:right}
+.cw li{display:grid;grid-template-columns:9.5rem minmax(0,1fr);gap:0 1.4rem;padding:.9rem 0;border-top:0}
+.cw li:first-child{padding-top:.2rem}
+.cw li>.k{grid-column:1;grid-row:1/span 4;margin:0;padding-top:.3em}
+.cw li>*:not(.k){grid-column:2}
+.cw h3{margin:0 0 .2rem}
+@media (max-width:640px){.cw li{grid-template-columns:1fr}.cw li>.k{grid-row:auto;padding:0 0 .2rem}.cw li>*:not(.k){grid-column:1}}
+.cw p{max-width:none}
+.sechead+.ds{border-top:0;padding-top:.6rem}
+.ds h3{font-size:1.65rem;font-weight:400;line-height:1.2;margin:0 0 .7rem}
+.ds .pubs{margin-top:1.3rem;padding-top:.4rem;border-top:1px solid var(--rule);font-size:.97rem}
+.ds .pubs li{border-top:0;padding:.55rem 0}
+.ds .pubs li:last-child{padding-bottom:0}
+.pubs .yr{color:var(--muted)}
+.tablewrap{overflow-x:auto}
+
+/* CV-style headings and small-cap labels (18 Nov) */
+.sechead,.home .sechead,.group,.seaped h2,.pub h2{font-size:.92rem;font-weight:450;text-transform:uppercase;letter-spacing:.2em;line-height:1.4;color:var(--accent);text-wrap:wrap}
+.sechead{margin:.3rem 0 1.4rem}
+.home .sechead{margin:0 0 .9rem}
+.group{padding-top:1.6rem}
+.seaped h2{margin:.35rem 0 1.2rem}
+.sp-two h2{margin:.35rem 0 0}
+.cw .k,.now .k,.label{font-size:.76rem;font-weight:450;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.label{margin:0 0 1rem}
+.home .now li{grid-template-columns:8.6rem minmax(0,1fr)}
+.now .k{padding-top:.35em}
+
+/* Rules under the coloured headings, CV-style (18 Nov) */
+.section:has(>.sechead){border-top:0;padding-top:1.4rem}
+.sechead{border-bottom:1px solid var(--rule);padding-bottom:.35rem;margin:0 0 1.2rem}
+.home .sechead{margin:0 0 .9rem}
+.home>.section.home-books{border-bottom:0;padding-bottom:.4rem}
+.home .home-books+.section{padding-top:1.2rem}
+.group{border-top:0;border-bottom:1px solid var(--rule);padding:1.8rem 0 .35rem;margin:0 0 .4rem}
+.group+.project{padding-top:1rem}
+.sp-two{border-top:0;padding-top:1.6rem;row-gap:0;align-items:start}
+.sp-two>h2{grid-column:1;border-bottom:1px solid var(--rule);padding-bottom:.35rem;margin:.3rem 0 0}
+.sp-two>div{grid-column:2}
+@media (max-width:640px){.sp-two>h2{margin-bottom:1rem}.sp-two>div{grid-column:1}}
+.seaped .section:has(>h2){border-top:0;padding-top:1.4rem}
+.seaped .section:not(.sp-two)>h2{border-bottom:1px solid var(--rule);padding-bottom:.35rem;margin:0 0 1.2rem}
+
+/* How it works: tinted step cards (18 Nov) */
+.steps{gap:.9rem}
+.steps li{background:var(--tile);padding:1.1rem 1.2rem 1.25rem}
+
+/* Books: red kind label above each title (18 Nov) */
+.bookkind{font-size:.92rem;font-weight:450;text-transform:uppercase;letter-spacing:.2em;color:var(--accent);margin:.2rem 0 .5rem}
+
+/* Publication entries: year column, title, venue, small-cap links (18 Nov) */
+.ds .pubs li{display:grid;grid-template-columns:3.4rem minmax(0,1fr);column-gap:.9rem;padding:.75rem 0}
+.ds .pubs li>*{grid-column:2}
+.ds .pubs li>.yr{grid-column:1;grid-row:1/span 6;padding-top:.08em;font-variant-numeric:tabular-nums}
+.pubs .pt{display:block;color:var(--ink);line-height:1.4}
+.pubs .pv{display:block;font-size:.9rem;color:var(--muted);line-height:1.45;margin-top:.1rem}
+.pubs .pv cite{color:var(--muted)}
+.ds .links,.cw .links{font-size:.74rem;text-transform:uppercase;letter-spacing:.09em;gap:.2rem 1.3rem;margin-top:.4rem}
+.ds .links a,.cw .links a,.ds .links .abs-btn,.cw .links .abs-btn{color:var(--muted);text-decoration:none}
+.ds .links a:hover,.cw .links a:hover,.ds .links .abs-btn:hover,.cw .links .abs-btn:hover{color:var(--accent)}
+.ds .links .abs-btn,.cw .links .abs-btn{font-size:inherit;letter-spacing:inherit;text-transform:inherit}
+@media (max-width:640px){.ds .pubs li{grid-template-columns:2.9rem minmax(0,1fr);column-gap:.6rem}}
+
+/* Publications: no rule above the list, larger titles, tighter links (18 Nov) */
+.ds .pubs{border-top:0;padding-top:0;margin-top:1.1rem}
+.pubs .pt{font-size:1.1rem;line-height:1.35}
+.ds .pubs li>.yr{padding-top:.18em}
+.ds .links,.cw .links{letter-spacing:.06em;gap:.2rem 1.05rem}
+
+
+/* Rules above and below the red headings (18 Nov) */
+.sechead,.group,.seaped .section:not(.sp-two)>h2,.sp-two>h2{border-top:1px solid var(--rule);line-height:1;padding-top:.74rem;padding-bottom:.5rem}
+
+/* Datasets: small portrait poster left of name + description; papers below, year under the poster, titles aligned with the dataset text (18 Nov) */
+.ds{grid-template-columns:7.5rem minmax(0,1fr);column-gap:1.8rem;row-gap:0;align-items:start}
+.ds>figure{grid-column:1;grid-row:1;margin:.35rem 0 0}
+.ds>div{grid-column:2;grid-row:1}
+.ds>.pubs{grid-column:1/-1;grid-row:2;max-width:none;margin-top:1.2rem}
+.ds .pubs li{grid-template-columns:7.5rem minmax(0,1fr);column-gap:1.8rem}
+@media (max-width:820px){
+  .ds{grid-template-columns:5.5rem minmax(0,1fr);column-gap:1.1rem}
+  .ds>figure{grid-column:1;grid-row:1;max-width:none}
+  .ds>div{grid-column:2;grid-row:1}
+  .ds>.pubs{grid-column:1/-1;grid-row:2}
+  .ds .pubs li{grid-template-columns:5.5rem minmax(0,1fr);column-gap:1.1rem}
+}
+@media (max-width:480px){.ds .pubs li{grid-template-columns:3rem minmax(0,1fr);column-gap:.7rem}}
+
+/* In progress aligned with the dataset text; years right-aligned (18 Nov) */
+.cw li{grid-template-columns:7.5rem minmax(0,1fr);column-gap:1.8rem}
+.ds .pubs li>.yr{text-align:right}
+@media (max-width:820px){.cw li{grid-template-columns:5.5rem minmax(0,1fr);column-gap:1.1rem}}
+@media (max-width:640px){.cw li{grid-template-columns:1fr}}
+
+/* Dataset codebook link: light highlight, echoing the shaded note boxes (18 Nov) */
+.ds>div>.links a[href$="codebook.pdf"]{display:inline-block;background:var(--tile);border-left:2px solid var(--accent);padding:.38rem .75rem .34rem;color:var(--ink);line-height:1.2}
+.ds>div>.links a[href$="codebook.pdf"]::after{content:" · PDF";color:var(--muted)}
+.ds>div>.links a[href$="codebook.pdf"]:hover{color:var(--accent)}
+
+/* Codebook tag on the dataset name line, flush right (18 Nov) */
+.dshead{display:flex;justify-content:space-between;align-items:baseline;gap:.4rem 1.5rem;flex-wrap:wrap;margin:0 0 .7rem}
+.dshead h3{margin:0}
+.dshead .links{margin:0;flex:none}
+.ds .dshead .links a[href$="codebook.pdf"]{display:inline-block;background:var(--tile);border-left:2px solid var(--accent);padding:.38rem .75rem .34rem;color:var(--ink);line-height:1.2}
+.ds .dshead .links a[href$="codebook.pdf"]::after{content:" · PDF";color:var(--muted)}
+.ds .dshead .links a[href$="codebook.pdf"]:hover{color:var(--accent)}
+
+/* Trial: codebook tag without the box (18 Nov) */
+.ds .dshead .links a[href$="codebook.pdf"]{background:none;border-left:0;padding:0}
+.ds .dshead .links a[href$="codebook.pdf"]::before{content:"›";color:var(--accent);font-size:1.35em;line-height:0;margin-right:.4em;position:relative;top:-.03em}
+
+/* Equal spacing: description to first paper = paper to paper (18 Nov) */
+.ds>.pubs{margin-top:.5rem}
+.ds>figure{margin-top:.15rem}
+
+/* Click a dataset image to see it larger (18 Nov) */
+.ds a.zoom{display:block;cursor:zoom-in}
+.ds a.zoom img{transition:opacity .15s}
+.ds a.zoom:hover img{opacity:.88}
+.lightbox{border:0;padding:0;margin:0;width:100vw;height:100vh;max-width:none;max-height:none;background:rgba(0,0,0,.85);cursor:zoom-out}
+.lightbox[open]{display:flex;align-items:center;justify-content:center}
+.lightbox::backdrop{background:transparent}
+.lightbox img{display:block;max-width:92vw;max-height:90vh;width:auto;height:auto;box-shadow:0 10px 40px rgba(0,0,0,.4)}
+.lb-close{position:fixed;top:1rem;right:1.2rem;background:none;border:0;color:#fff;font-size:2.2rem;line-height:1;cursor:pointer;padding:.2rem .5rem}
+
+/* Consistent section spacing (18 Nov): same gap above every red heading, and before the footer */
+:root{--secgap:3.3rem}
+main>.section{padding-bottom:0}
+main>.section:has(>.sechead),main>.section.sp-two,main.seaped>.section:has(>h2){padding-top:var(--secgap)}
+main>.section>:last-child,main>.section>:last-child>:last-child{margin-bottom:0;padding-bottom:0}
+.cw li:last-child{padding-bottom:0}
+main>.section .ds:last-child{padding-bottom:0}
+.group{margin-top:calc(var(--secgap) - 1.6rem)}
+main>.project:last-child{padding-bottom:0}
+.foot{margin-top:var(--secgap)}
+main>.section:has(>.sechead)>.sechead+.ds,.sechead+.ds{padding-top:.2rem}
+.home .home-books+.section{padding-top:var(--secgap)}
+main>.section+.group{margin-top:var(--secgap)}
+.principles li:last-child,.pub .principles li:last-child{padding-bottom:0}
+.publishers{margin-bottom:0}
+.foot{margin-top:calc(var(--secgap) - 2.6rem)}
+.teach>.lede+.group{margin-top:3.4rem}
+main.teach{padding-bottom:2.45rem}
+main.seaped:not(.pub)>.sp-head+.sp-two{padding-top:calc(var(--secgap) - .55rem)}
+.seaped .section:not(.sp-two)>h2:has(+.steps){margin-bottom:1.52rem}
+
+/* Home: no rule above the books; tighter space above and below them (18 Nov) */
+.home>.section.home-books{border-top:0;padding-top:.8rem}
+.home>.section.intro{padding-bottom:0}
+.home .home-books+.section{padding-top:1.45rem}
+/* Books page: keep space on both sides of the rules between books */
+main>.section.books-head{padding-bottom:1.4rem}
+.bookpage>div>:last-child,.bookpage>div>:last-child>:last-child{margin-bottom:0}
+main>.section.bookpage:has(+.bookpage){padding-bottom:1.06rem}
+.bookpage a.zoom{display:block;cursor:zoom-in}
+.bookpage a.zoom img{transition:opacity .15s}
+.bookpage a.zoom:hover img{opacity:.9}
+
+/* Teaching: syllabus link on the course title line, like the codebook links (18 Nov) */
+.project .dshead{margin:0}
+.project .dshead .links{font-size:.74rem;text-transform:uppercase;letter-spacing:.06em}
+.project .dshead .links a{color:var(--ink);text-decoration:none}
+.project .dshead .links a::before{content:"›";color:var(--accent);font-size:1.35em;line-height:0;margin-right:.4em;position:relative;top:-.03em}
+.project .dshead .links a::after{content:" · PDF";color:var(--muted)}
+.project .dshead .links a:hover{color:var(--accent)}
+
+/* More air in Datasets and publications (18 Nov) */
+.ds .pubs li{padding:.95rem 0}
+.ds .pubs li:last-child{padding-bottom:0}
+.ds>.pubs{margin-top:.7rem}
+main>.section .ds{padding:2.4rem 0}
+main>.section .ds:last-child{padding-bottom:0}
+.sechead+.ds{padding-top:.2rem}
+
+/* Books: endorsements open one at a time; the first is open (18 Nov) */
+.praise{margin:0 0 .55rem}
+.praise summary{cursor:pointer;list-style:none;color:var(--muted);font-size:.95rem}
+.praise summary::-webkit-details-marker{display:none}
+.praise summary::before{content:"›";display:inline-block;color:var(--accent);font-size:1.25em;line-height:1;width:.9em;transition:transform .15s}
+.praise[open] summary::before{transform:rotate(90deg)}
+.praise .pn{color:var(--ink)}
+.praise summary:hover .pn{color:var(--accent)}
+.praise .quote{margin:.55rem 0 1.2rem .9em}
+.praise .quote p:last-child{margin-bottom:0}
+.praise summary::before{text-align:center;transform-origin:50% 58%;vertical-align:-.05em}
+.praise[open] summary::before{transform:rotate(90deg) translateX(.05em)}
+
+/* Books: contents open on click (18 Nov) */
+.tocbox>summary{cursor:pointer;list-style:none;margin:0}
+.tocbox>summary::-webkit-details-marker{display:none}
+.tocbox>summary::before{content:"›";display:inline-block;color:var(--accent);font-size:1.6em;line-height:0;width:.75em;text-align:center;transform-origin:50% 50%;transition:transform .15s;position:relative;top:.05em}
+.tocbox[open]>summary::before{transform:rotate(90deg)}
+.tocbox>summary:hover{color:var(--accent)}
+.tocbox[open]>summary{margin-bottom:1rem}
+
+/* Phones: dataset image beside the name, description full width below (18 Nov) */
+@media (max-width:640px){
+  .ds{grid-template-columns:4.5rem minmax(0,1fr);column-gap:1rem}
+  .ds>div{display:contents}
+  .ds>figure{grid-column:1;grid-row:1;width:auto;margin:0}
+  .ds .dshead{grid-column:2;grid-row:1;align-self:center}
+  .ds>div>p{grid-column:1/-1;grid-row:2;margin-top:.9rem}
+  .ds>.pubs{grid-column:1/-1;grid-row:3}
+}
+
+
+/* publishers box on the project page: equal space above and below its contents (19 Nov) */
+main.seaped>.section.publishers{margin-top:2.2rem;padding:2.2rem 2rem}
+@media (max-width:640px){main.seaped>.section.publishers{padding:1.6rem 1.1rem}}
+
+/* Indonesian and Thai summaries pages (19 Nov) */
+.summaries .books-head .langs{margin:0 0 1rem}
+:lang(th) .sechead,:lang(th) .cw .k,:lang(th) .links{letter-spacing:0;text-transform:none}
+:lang(th) .lede,:lang(th) .cw p{line-height:1.75}
+
+.rintro .langs{margin-top:.7rem}
+
+/* ---------- dataset pages (option B, 19 Nov) ---------- */
+.dshero{display:grid;grid-template-columns:minmax(0,1fr) 22rem;gap:0 2.6rem;align-items:start}
+.dshero .crumb{margin:0 0 .9rem}
+.dshero h1{margin:0 0 1rem}
+.dshero figure{margin:.4rem 0 0}
+.dshero figure img{width:100%;height:auto;display:block}
+.dshero figcaption,.dsfig figcaption{font-size:.88rem;color:var(--muted);margin-top:.45rem;line-height:1.45}
+.facts{display:grid;grid-template-columns:9.5rem minmax(0,1fr);gap:.55rem 1.4rem;margin:0}
+.facts dt{color:var(--muted);font-size:.95rem;padding-top:.05em}
+.facts dd{margin:0}
+.dsfig{margin:0}
+.dsfig img{width:100%;max-width:44rem;height:auto;display:block}
+.pkgs{list-style:none;padding:0;margin:.8rem 0 0}
+.pkgs li{padding:.35rem 0;border-top:1px solid var(--rule)}
+.pkgs li span{display:block}
+.pkgs li a{font-size:.95rem;color:var(--muted)}
+.dspage .pubs{margin-top:0}
+.dspage .pubs li:first-child{padding-top:0;border-top:0}
+.dspage .sp-two>div>p:first-child{margin-top:0}
+@media (max-width:820px){.dshero{grid-template-columns:1fr}.dshero figure{margin-top:1.4rem}}
+@media (max-width:640px){.facts{grid-template-columns:1fr;gap:.1rem}.facts dd{margin-bottom:.7rem}}
+
+.dshead h3 a{color:inherit;text-decoration:none}
+.dshead h3 a:hover{color:var(--accent)}
+
+/* Footer, 19 Nov (Colm): everything flush left; school, then faculty profile + email, then language links */
+.foot{flex-direction:column;flex-wrap:nowrap;justify-content:flex-start;align-items:flex-start;gap:.3rem}
+.foot .foot-langs{margin-top:.55rem}
+
+@media (max-width:640px){.ds .dshead .links{flex-wrap:wrap;gap:.4rem;flex:1 1 100%;min-width:0}}
+/* Footer, 19 Nov 17:25 (Colm): language links flush right on the school line */
+.foot{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:2rem;row-gap:.3rem;align-items:baseline}
+.foot>span{grid-column:1}
+.foot>.foot-langs{grid-column:2;grid-row:1;justify-self:end;margin-top:0}
+@media (max-width:640px){.foot{grid-template-columns:minmax(0,1fr)}.foot>.foot-langs{grid-column:1;grid-row:auto;justify-self:start;margin-top:.55rem}}
+
+/* Boxed buttons (19 Nov, Colm): dataset Codebook / About the data; book Introduction PDF */
+.ds .dshead .links,.titlerow .links{display:flex;flex-wrap:nowrap;gap:.45rem;margin:0;flex:none}
+.ds .dshead .links a.boxbtn,.titlerow .links a.boxbtn{display:inline-block;background:var(--tile);border-left:2px solid var(--accent);padding:var(--btn-pt,.45rem) .8rem var(--btn-pb,.35rem);color:var(--ink);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;line-height:1;white-space:nowrap;text-decoration:none}
+.ds .dshead .links a.boxbtn::before,.titlerow .links a.boxbtn::before{content:"›";color:var(--accent);margin-right:.45em}
+.ds .dshead .links a.boxbtn[href$=".pdf"]::after,.titlerow .links a.boxbtn[href$=".pdf"]::after{content:" · PDF";color:var(--muted)}
+.ds .dshead .links a.boxbtn:not([href$=".pdf"])::after{content:none}
+.ds .dshead .links a.boxbtn:hover,.titlerow .links a.boxbtn:hover{color:var(--accent)}
+.ds .dshead,.titlerow{display:flex;justify-content:space-between;align-items:flex-end;gap:.4rem 1.5rem;flex-wrap:wrap}
+.ds .dshead .links,.titlerow .links{margin-bottom:var(--btn-drop,0px)}
+.titlerow{margin:0 0 .6rem}.titlerow .booktitle{margin:0}
+@media (max-width:640px){.ds .dshead .links,.titlerow .links{flex-wrap:wrap;gap:.4rem;flex:1 1 100%;min-width:0;margin-bottom:0}}
+/* measured 19 Nov: text optically centred in the box; box bottom on the title baseline */
+:root{--btn-pt:.53rem;--btn-pb:.27rem}
+.ds .dshead{--btn-drop:.67rem}.titlerow{--btn-drop:.64rem}
+.foot{padding-top:1.05rem}
+/* 19 Nov 17:38 (Colm): whole button turns red on hover, incl. "· PDF"; cover column fits the cover, smaller gap to the text */
+.ds .dshead .links a.boxbtn:hover::after,.titlerow .links a.boxbtn:hover::after{color:var(--accent)}
+.bookpage{grid-template-columns:13rem minmax(0,1fr);gap:2.2rem}
+@media (max-width:640px){.bookpage{grid-template-columns:1fr;gap:1.6rem}}
+/* Home books (19 Nov, Colm): whole card links to the Books page (stretched title link); a plain underlined "Introduction (PDF)" link sits on top */
+.book{position:relative}
+.book h3 a{color:inherit;text-decoration:none}
+.book h3 a::after{content:"";position:absolute;inset:0}
+.book:hover h3{color:var(--accent)}
+.book:has(.pdflink a:hover) h3{color:inherit}
+.book .pdflink{position:relative;z-index:1;margin-top:.35rem}
+/* 19 Nov 17:49 (Colm): home book panels near-equal, Bonding a little wider */
+.home .books{grid-template-columns:1.05fr 1fr}
+/* 19 Nov 17:50 (Colm): hovering a book card turns title and blurb red (not the Introduction link) */
+.book:hover p:not(.pdflink){color:var(--accent)}
+.book:has(.pdflink a:hover) p:not(.pdflink){color:var(--muted)}
+
+/* Dataset pages, stacked layout (19 Nov 17:53, Colm trial): red heading above, text full width from the left edge */
+.dspage .sp-two{display:block}
+.dspage .sp-two>h2{margin:0 0 1.5rem;width:auto}
+.dspage .sp-two>div p,.dspage .sp-two .pubs,.dspage .sp-two .abstract,.dspage .dshero .lede,.dspage .dshero p{max-width:none}
+.dspage .facts{grid-template-columns:11rem minmax(0,1fr)}
+.dspage .facts{grid-template-columns:8rem minmax(0,1fr);column-gap:1.6rem}
+.dspage .pubs li{display:grid;grid-template-columns:8rem minmax(0,1fr);column-gap:1.6rem;border-top:0;padding:.9rem 0}
+.dspage .pubs li>*{grid-column:2}
+.dspage .pubs li>.yr{grid-column:1;grid-row:1/span 6;padding-top:.18em;font-variant-numeric:tabular-nums}
+.dspage .pubs li:first-child{padding-top:0}
+@media (max-width:640px){.dspage .pubs li{grid-template-columns:3rem minmax(0,1fr);column-gap:.7rem}}
+.dspage .pubs li>.yr{padding-top:.1em}
+.dspage .pubs .links{font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;gap:.2rem 1.05rem;margin-top:.4rem}
+.dspage .pubs .links a,.dspage .pubs .links .abs-btn{color:var(--muted);text-decoration:none}
+.dspage .pubs .links a:hover,.dspage .pubs .links .abs-btn:hover{color:var(--accent)}
+.dspage .pubs .links .abs-btn{font-size:inherit;letter-spacing:inherit;text-transform:inherit}
+.dspage .pubs li>.yr{padding-top:0;line-height:1.485rem}
+@media (max-width:640px){.dspage .facts{grid-template-columns:1fr;row-gap:.1rem}.dspage .facts dd{margin-bottom:.7rem}}
+
+/* Dataset page hero, 19 Nov 18:07 (Colm): title spans the full width; photo beside the opening text, sized to its height (script sets the height) */
+.dspage .dshero{display:block}
+.dspage .dshero h1{margin:0 0 1.1rem}
+.dshero-body{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 2.4rem;align-items:start}
+.dshero-body .lede{margin:0}
+.dshero-body figure{margin:.35rem 0 0}
+.dshero-body figure img{height:12rem;width:auto;max-width:30rem;display:block}
+.dshero-body figcaption{max-width:100%;width:0;min-width:100%}
+@media (max-width:820px){.dshero-body{grid-template-columns:1fr}.dshero-body figure{margin-top:1.4rem}.dshero-body figure img{height:auto;width:100%;max-width:30rem}}
+/* Dataset pages: same section rhythm as Data & Papers (19 Nov 18:07) */
+main.dspage>.section{padding-bottom:0}
+main.dspage>.section>div>:last-child,main.dspage>.section>div>:last-child>:last-child,main.dspage .dsfig,main.dspage .pkgs{margin-bottom:0}
+.dspage .pubs li:last-child,.dspage .pkgs li:last-child{padding-bottom:0}
+.dspage .sp-two>h2{margin-bottom:1.375rem}
+.dspage .dsfig figcaption{margin-bottom:-.2rem}
+.dspage .pkgs li{line-height:1.45}
+/* Dataset pages, 19 Nov 18:54 (Colm): no top photo; opening text runs the full width */
+.dspage .dshero .lede{margin:0;max-width:none}
+/* 19 Nov 19:12 (Colm): years right-aligned next to the titles (as on Data & Papers); Dataverse DOI on the same line as its title */
+.dspage .pubs li>.yr{text-align:right}
+.dspage .pkgs li{display:flex;justify-content:space-between;align-items:baseline;gap:.2rem 1.5rem;flex-wrap:wrap}
+.dspage .pkgs li span{display:inline}
+/* 19 Nov 19:44 (Colm): left column just wide enough for "In progress" (81 px); same width for the About-the-data table */
+.dspage .pubs li,.dspage .facts{grid-template-columns:5.1rem minmax(0,1fr);column-gap:1.4rem}
+@media (max-width:640px){.dspage .pubs li{grid-template-columns:3rem minmax(0,1fr);column-gap:.7rem}.dspage .facts{grid-template-columns:1fr}}
+.dspage .facts dt{white-space:nowrap}
+/* 19 Nov 19:48 (Colm): no rule above the first Dataverse line */
+.dspage .pkgs li:first-child{border-top:0}
+/* 19 Nov 19:49 (Colm): every link turns red on hover — footer and Dataverse DOI links had been overridden */
+.foot a:hover,.pkgs li a:hover{color:var(--accent)}
+.mast nav a[aria-current]:hover{color:var(--accent)}
+/* 19 Nov 20:00 (Colm): each Dataverse line is one link — title, then its DOI */
+.dspage .pkgs li{display:block}
+.dspage .pkgs li a{color:var(--ink);text-decoration:none;font-size:inherit}
+.dspage .pkgs li a .pk-doi{margin-left:.55rem;font-size:.95rem;color:var(--muted);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.18em;text-decoration-color:var(--rule)}
+.dspage .pkgs li a:hover,.dspage .pkgs li a:hover .pk-doi,.dspage .pkgs li a:hover cite{color:var(--accent)}
