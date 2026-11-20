@@ -687,3 +687,16 @@ main.dspage>.section>div>:last-child,main.dspage>.section>div>:last-child>:last-
   body{font-size:19px}
   summary{width:auto;max-width:100%}
 }
+/* 20 Nov (Colm): phone only — black background, white text, very light grey secondary text, brighter lines, lighter red */
+@media (max-width:640px){
+  :root,:root[data-theme=light],:root[data-theme=dark]{
+    color-scheme:dark;
+    --bg:#000000;
+    --ink:#ffffff;
+    --muted:#d9d9d9;
+    --rule:#5c5c5c;
+    --accent:#e0705f;
+    --tile:#1a1a1a;
+    --hl:#3a2522;
+  }
+}
